@@ -12,11 +12,14 @@
       color: #cc3366;
       text-align: center;
       padding: 2rem;
+      overflow-x: hidden;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
+
     .letter {
       max-width: 600px;
       margin: auto;
@@ -25,7 +28,10 @@
       border-radius: 20px;
       padding: 2rem;
       box-shadow: 0 0 15px rgba(255, 192, 203, 0.3);
+      position: relative;
+      z-index: 1;
     }
+
     .gallery {
       margin-top: 3rem;
       display: flex;
@@ -33,26 +39,78 @@
       justify-content: center;
       gap: 1rem;
     }
+
     .gallery img {
       border-radius: 15px;
       max-width: 250px;
       height: auto;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     .heart {
       font-size: 2rem;
       color: #ff6699;
     }
+
     .flowers {
       margin-top: 1rem;
       font-size: 2rem;
     }
+
     audio {
       display: none;
+    }
+
+    /* Corazones animados */
+    .falling-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .falling-hearts span {
+      position: absolute;
+      display: block;
+      color: #ff6699;
+      font-size: 24px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="falling-hearts">
+    <!-- Puedes duplicar o aumentar los corazones -->
+    <span style="left: 10%; animation-duration: 6s;">❤️</span>
+    <span style="left: 20%; animation-duration: 8s;">💖</span>
+    <span style="left: 30%; animation-duration: 7s;">💕</span>
+    <span style="left: 40%; animation-duration: 5s;">❤️</span>
+    <span style="left: 50%; animation-duration: 9s;">💗</span>
+    <span style="left: 60%; animation-duration: 6.5s;">💞</span>
+    <span style="left: 70%; animation-duration: 7.5s;">💘</span>
+    <span style="left: 80%; animation-duration: 5.5s;">💓</span>
+    <span style="left: 90%; animation-duration: 6.8s;">💝</span>
+  </div>
+
   <h1>💖 Para Ana 💖</h1>
   <div class="flowers">🌸🌹🌺🌷🌼</div>
 
